@@ -54,14 +54,7 @@ btnAddExpense?.addEventListener('click', () => {
     nameExpenseInput.value = "";
     amountInput.value = "";
     personInput.value = "";
-    /* 
-        for (const expenses of expenseTab) {
-            const expenseId = expenses.id;
-            const expenseName = expenses.name;
-            const expenseAmount = expenses.amount;
-            console.log(`Dépense : ${expenseName}, Montant : ${expenseAmount}`);
-        }
-     */
+
 
     console.log("La dépense a été ajoutée avec succès.");
     console.log(expenseTab);
@@ -84,6 +77,10 @@ for (const group of groupExpense) {
 
 groupList?.appendChild(ul);
 console.log(groupList);
+
+
+
+
 
 
 
