@@ -1,0 +1,78 @@
+<html lang="er">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <title>Budget partagée</title>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet" />
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="./src/styles.css" />
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <div class="container">
+      <div class="sub-container">
+        <!-- Budget -->
+        <div class="total-amount-container">
+          <h3>Nom du groupe </h3>
+          <p class="hide error" id="invalid-error">
+            la champ ne doit pas être vide
+          </p>
+          <input type="text" id="grpExpense" placeholder="Entrer un nom de groupe" />
+          <button class="submit" id="addGrpExpense">Ajouter un nom</button>
+        </div>
+        <!-- Expenditure -->
+        <div class="user-amount-container">
+          <h3>Dépense : </h3>
+          <p class="hide error" id="product-title-error">
+            les champs ne doit pas être vide
+          </p>
+          
+          <input type="text" id="nameExpense" name="name" placeholder="Entrer un nom de dépense" />
+          <input type="number" id="amount" name="amount" placeholder="Entrer un montant €" />
+          <input type="text" id="person" name="person" placeholder="Entrer un nom de personne" />
+
+          <button class="submit" id="btnAddExpense">Ajouter une dépense</button>
+        </div>
+      </div>
+
+
+
+      <!-- Output -->
+      <div class="output-container flex-space">
+        <div>
+          <p>Total des dépenses</p>
+          <span id="amount">0</span>
+        </div>
+        <div>
+          <p>Dépense</p>
+          <span id="expenditure-value">0</span>
+        </div>
+        <div>
+          <p>Balance</p>
+          <span id="balance-amount">0</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- List -->
+
+    <div class="list">
+      <h3>Liste de dépense :</h3>
+      <div class="list-container" id="list">
+
+        
+      </div>
+    </div>
+  </div>
+  <!-- Script -->
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
