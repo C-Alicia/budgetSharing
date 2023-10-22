@@ -84,7 +84,7 @@ btnAddExpense?.addEventListener('click', () => {
 
     for (const item of expenseTab) {
         const li = document.createElement('li');
-        li.textContent = item.name + ' ' + item.amount +'€' + ' ' + item.createBy;
+        li.textContent = item.name + ' ' + item.amount + '€' + ' ' + item.createBy;
         ul.append(li);
     }
 
@@ -92,11 +92,6 @@ btnAddExpense?.addEventListener('click', () => {
     console.log();
 
 });
-
-
-
-
-
 
 
 
