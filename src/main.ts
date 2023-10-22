@@ -5,15 +5,17 @@ import './style.css'
 //import { FormGrpComponent } from './components/FormGrpAddComponent';
 //import { ExpenseGroup } from './ExpenseGroupe'
 
+
+// ajouter un groupe de dépense
 let btnAddGrp = document.getElementById("addGrpExpense");
 let groupExpense: ExpenseGroup[] = [];
 let persons: Person[] = [];
 
 
 btnAddGrp!.addEventListener('click', () => {
-    
+
     let grpExpenseName = (<HTMLInputElement>document.getElementById("grpExpense")).value;
-    if (grpExpenseName === null) {
+    if (grpExpenseName.trim() === "") {
         alert("Le champ est vide!");
     }
     else {
@@ -24,9 +26,26 @@ btnAddGrp!.addEventListener('click', () => {
         alert('Votre groupe ' + grpExpenseName + ' a été créee ');
         console.log(groupExpense);
     }
+
+    updateGroupList();
+
+    function updateGroupList() {
+        const groupList = document.getElementById("list");
+        const ul = document.createElement('ul');
+        groupList.innerHTML = '';  // Effacez le contenu précédent
+
+        for (const item of groupExpense) {
+            const li = document.createElement('li');
+            li.textContent = item.nameGrp;
+            ul.appendChild(li);
+        }
+
+        groupList.appendChild(ul);
+        console.log();
+    }
 });
 
-
+// ajouter une dépense liée à groupe
 let btnAddExpense = document.getElementById("btnAddExpense") as HTMLButtonElement;
 let personInput = document.getElementById("person") as HTMLInputElement;
 let nameExpenseInput = document.getElementById("nameExpense") as HTMLInputElement;
@@ -61,22 +80,22 @@ btnAddExpense?.addEventListener('click', () => {
     console.log(personPerson);
 });
 
-//lister depense et groupe de dépense :
+//lister la liste de groupe de dépense :
 
 
-const groupList = document.getElementById("list");
-const ul = document.createElement('ul');
 
-for (const group of groupExpense) {
-    const li = document.createElement('li');
-    li.textContent = group.nameGrp;
-    ul.appendChild(li);
-    console.log(li);
-    console.log(group.nameGrp);
-}
 
-groupList?.appendChild(ul);
-console.log(groupList);
+
+/*    for (const group of groupExpense) {
+       const li = document.createElement('li');
+       li.textContent = group.nameGrp;
+       ul.append(li);
+       console.log(ul);
+       console.log(group.nameGrp);
+   }
+   
+   groupList.append(ul);
+   console.log(groupList); */
 
 
 

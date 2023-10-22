@@ -25,5 +25,9 @@ export class ExpenseGroup {
         console.log(expense);
     }
 
+    updateGroupList(){
+        
+    }
+
     
 }
