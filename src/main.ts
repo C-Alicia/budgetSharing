@@ -10,8 +10,6 @@ import './style.css'
 let btnAddGrp = document.getElementById("addGrpExpense");
 let groupExpense: ExpenseGroup[] = [];
 let persons: Person[] = [];
-
-
 btnAddGrp!.addEventListener('click', () => {
 
     let grpExpenseName = (<HTMLInputElement>document.getElementById("grpExpense")).value;
@@ -32,15 +30,15 @@ btnAddGrp!.addEventListener('click', () => {
     function updateGroupList() {
         const groupList = document.getElementById("list");
         const ul = document.createElement('ul');
-        groupList.innerHTML = '';  // Effacez le contenu précédent
+        groupList.innerHTML = '';
 
         for (const item of groupExpense) {
             const li = document.createElement('li');
             li.textContent = item.nameGrp;
-            ul.appendChild(li);
+            ul.append(li);
         }
 
-        groupList.appendChild(ul);
+        groupList.append(ul);
         console.log();
     }
 });
@@ -53,8 +51,8 @@ let amountInput = document.getElementById("amount") as HTMLInputElement;
 let expenseTab: Expense[] = [];
 
 btnAddExpense?.addEventListener('click', () => {
-    const personValue = personInput.value;
     const nameExpense = nameExpenseInput.value;
+    const personValue = personInput.value;
     const amount = amountInput.value;
 
     // Créez une nouvelle instance de Person si elle n'existe pas encore
@@ -78,66 +76,22 @@ btnAddExpense?.addEventListener('click', () => {
     console.log("La dépense a été ajoutée avec succès.");
     console.log(expenseTab);
     console.log(personPerson);
+
+    //lister la liste des dépense :
+
+    const expenseList = document.getElementById("expenses");
+    const ul = document.createElement('ul');
+
+    for (const item of expenseTab) {
+        const li = document.createElement('li');
+        li.textContent = item.name + ' ' + item.amount +'€' + ' ' + item.createBy;
+        ul.append(li);
+    }
+
+    expenseList.append(ul);
+    console.log();
+
 });
-
-//lister la liste de groupe de dépense :
-
-
-
-
-
-/*    for (const group of groupExpense) {
-       const li = document.createElement('li');
-       li.textContent = group.nameGrp;
-       ul.append(li);
-       console.log(ul);
-       console.log(group.nameGrp);
-   }
-   
-   groupList.append(ul);
-   console.log(groupList); */
-
-
-
-
-
-
-
-
-for (const expenses of expenseTab) {
-    const expenseId = expenses.id;
-    const expenseName = expenses.name;
-    const expenseAmount = expenses.amount;
-    console.log(`Dépense : ${expenseName}, Montant : ${expenseAmount}`);
-}
-
-
-/*  const listCreator = (expenseName, expenseValue) => {
-     let sublistContent = document.createElement("div");
-     sublistContent.classList.add("sublist-content", "flex-space");
-     list.appendChild(sublistContent);
-     sublistContent.innerHTML = `<p class="product">${expenseName}</p><p class="amount">${expenseValue}</p>`;
-     let editButton = document.createElement("button");
-     editButton.classList.add("fa-solid", "fa-pen-to-square", "edit");
-     editButton.style.fontSize = "1.2em";
-     editButton.addEventListener("click", () => {
-         modifyElement(editButton, true);
-     });
-
-
-
-
-     let deleteButton = document.createElement("button");
-     deleteButton.classList.add("fa-solid", "fa-trash-can", "delete");
-     deleteButton.style.fontSize = "1.2em";
-     deleteButton.addEventListener("click", () => {
-         modifyElement(deleteButton);
-     });
-     sublistContent.appendChild(editButton);
-     sublistContent.appendChild(deleteButton);
-     document.getElementById("list").appendChild(sublistContent);
- };
-*/
 
 
 
